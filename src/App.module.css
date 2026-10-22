@@ -1,0 +1,29 @@
+:global(body) {
+  min-height: 100vh;
+  background-color: #ffaefc;
+}
+
+.title {
+  font-size: 10rem;
+  font-weight: bold;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.cardContainer {
+  display: flex;
+  gap: 45px;
+}
+
+.bottomContent {
+  display: flex;
+  align-items: flex-end;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+@media (max-width: 600px) {
+  .bottomContent {
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+}

@@ -1,3 +1,5 @@
+import styles from './tolleliste.module.css'
+
 const games = [
   'Overwatch',
   'Battlefield 3',
@@ -8,7 +10,7 @@ const games = [
 
 export default function TolleListe() {
   return (
-    <section className="game-list" aria-labelledby="game-list-title">
+    <section className={styles.gameList} aria-labelledby="game-list-title">
       <h2 id="game-list-title">supa Spiele</h2>
       <ul>
         {games.map((game) => (
