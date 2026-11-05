@@ -38,8 +38,9 @@ export default function Card({ title, description, imageurl }: Props) {
         <img src={imageurl} alt={title} />
       </button>
       <p>{description}</p>
+
       <p>Remaining: {counter.remaining}</p>
-      <p>So viele clicks bis Manasek wieder in die Schule kommt: {counter.clicks}</p>
+      <p>Times clicked: {counter.clicks}</p>
     </div>
   )
 }
