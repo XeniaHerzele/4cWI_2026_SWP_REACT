@@ -1,5 +1,19 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
 .header h1 {
   margin-top: 0;
+  margin-bottom: 0;
   font-size: clamp(2.5rem, 10vw, 10rem);
   font-family: 'Courier New', Courier, monospace;
+}
+
+.clock {
+  margin: 0;
+  font-size: 1rem;
+  font-family: 'Courier New', Courier, monospace;
+  opacity: 0.8;
 }

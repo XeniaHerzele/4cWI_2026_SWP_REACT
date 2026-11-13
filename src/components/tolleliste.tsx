@@ -2,6 +2,7 @@ import styles from './tolleliste.module.css'
 
 const games = [
   'Overwatch',
+  'Deadlock',
   'Battlefield 3',
   'Cyberpunk 2077',
   'Powerwash Simulator',
