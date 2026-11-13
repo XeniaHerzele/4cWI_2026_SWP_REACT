@@ -8,16 +8,96 @@
 }
 
 .factButton {
+  position: relative;
+  overflow: hidden;
   border: 0;
   border-radius: 999px;
   padding: 0.8rem 1.2rem;
-  background: #2c7be5;
+  background: linear-gradient(
+    110deg,
+    #ff4d6d,
+    #ff9f1c,
+    #ffe66d,
+    #4ecdc4,
+    #4361ee,
+    #b5179e,
+    #ff4d6d
+  );
+  background-size: 300% 100%;
   color: white;
   font: inherit;
   font-weight: 700;
   cursor: pointer;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 0 12px rgba(181, 23, 158, 0.4);
+  animation: rainbow-shift 5s linear infinite, button-glow 2s ease-in-out infinite alternate;
+}
+
+.factButton::after {
+  position: absolute;
+  inset: -50%;
+  background: linear-gradient(
+    115deg,
+    transparent 42%,
+    rgba(255, 255, 255, 0.75) 48%,
+    transparent 54%
+  );
+  content: '';
+  pointer-events: none;
+  transform: translateX(-100%) rotate(10deg);
+  animation: sparkle-sweep 3s ease-in-out infinite;
 }
 
 .factButton:hover {
   transform: translateY(-1px) scale(1.02);
+}
+
+.factButton:disabled {
+  cursor: wait;
+  opacity: 0.7;
+  animation-play-state: paused;
+}
+
+.factButton:disabled::after {
+  animation-play-state: paused;
+}
+
+.factError {
+  color: #b42318;
+  font-weight: 700;
+}
+
+@keyframes rainbow-shift {
+  to {
+    background-position: 300% 0;
+  }
+}
+
+@keyframes button-glow {
+  from {
+    box-shadow: 0 0 10px rgba(181, 23, 158, 0.35);
+  }
+
+  to {
+    box-shadow: 0 0 20px rgba(67, 97, 238, 0.75);
+  }
+}
+
+@keyframes sparkle-sweep {
+  0%,
+  20% {
+    transform: translateX(-100%) rotate(10deg);
+  }
+
+  70%,
+  100% {
+    transform: translateX(100%) rotate(10deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .factButton,
+  .factButton::after {
+    animation: none;
+  }
 }

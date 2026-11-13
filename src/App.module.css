@@ -11,10 +11,9 @@
   border: 4px solid #8c19ba;
   border-radius: 12px;
   font-family: 'Courier New', Courier, monospace;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: minmax(16ch, 1fr) auto auto;
   align-items: center;
-  justify-content: space-between;
   gap: 1rem;
   background: rgba(140, 25, 186, 0.08);
 }
@@ -32,6 +31,22 @@
   font-size: clamp(1.5rem, 4vw, 2.2rem);
 }
 
+.statusMessage {
+  animation: statusReveal 350ms ease both;
+}
+
+@keyframes statusReveal {
+  from {
+    opacity: 0;
+    transform: translateY(0.2em);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .buttonRow {
   display: flex;
   flex-wrap: wrap;
@@ -47,17 +62,18 @@
   font: inherit;
   font-weight: 700;
   cursor: pointer;
-  transition: transform 0.2s ease;
-}
-
-.statusButton:hover {
-  transform: translateY(-1px) scale(1.02);
 }
 
 .clickCounter {
   margin: 0;
   font-size: 1.05rem;
   font-weight: 700;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .statusMessage {
+    animation: none;
+  }
 }
 
 @media (max-width: 600px) {
@@ -67,6 +83,25 @@
   }
 
   .effectPanel {
-    align-items: flex-start;
+    grid-template-columns: minmax(16ch, 1fr) auto;
+  }
+
+  .clickCounter {
+    grid-column: 1 / -1;
+    justify-self: end;
+  }
+}
+
+@media (max-width: 420px) {
+  .effectPanel {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .buttonRow {
+    justify-self: start;
+  }
+
+  .clickCounter {
+    grid-column: auto;
   }
 }

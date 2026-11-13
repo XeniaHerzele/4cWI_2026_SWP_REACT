@@ -3,7 +3,7 @@ import styles from './App.module.css'
 import Cards from './components/Cards.tsx'
 import Header from './components/Header.tsx'
 import FunkyGif from './components/funkygif.tsx'
-// import RandomFunFact from './components/RandomFunFact.tsx'
+import RandomFunFact from './components/RandomFunFact.tsx'
 import TolleListe from './components/tolleliste.tsx'
 
 function App() {
@@ -42,7 +42,9 @@ function App() {
       <section className={styles.effectPanel} aria-label="useEffect Demo">
         <div>
           <p className={styles.statusLabel}>Status</p>
-          <h2>{statusMessage}</h2>
+          <h2 key={statusMessage} className={styles.statusMessage}>
+            {statusMessage}
+          </h2>
         </div>
 
         <div className={styles.buttonRow}>
@@ -54,7 +56,7 @@ function App() {
         <p className={styles.clickCounter}>Boosts: {clickCount}</p>
       </section>
 
-      {/* <RandomFunFact /> */}
+      <RandomFunFact />
 
       <div className={styles.bottomContent}>
         <FunkyGif imageurl="https://media.giphy.com/media/GkD4U3VfiIbzcBhQNu/giphy.gif" />
